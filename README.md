@@ -110,7 +110,7 @@ RandomUserExplorer/
 
 ## 🧑‍💻 Autor
 
-Juan Medina
+**Juan Medina**
 📍 El Salvador
 🌐 randomuser.me
 📧 juanmedina100@gmail.com

@@ -93,6 +93,11 @@ dependencies {
     implementation(libs.coil.compose)
 
 
+    testImplementation("io.mockk:mockk:1.13.11")
+    testImplementation("junit:junit:4.13.2")
+    testImplementation("com.google.truth:truth:1.4.2")
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.8.1")
+
     configurations.all {
         exclude(group = "com.intellij", module = "annotations")
     }

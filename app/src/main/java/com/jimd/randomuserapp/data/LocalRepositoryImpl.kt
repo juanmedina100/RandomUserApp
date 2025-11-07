@@ -12,10 +12,6 @@ class LocalRepositoryImpl(
         userDao.insertUser(user)
     }
 
-    override suspend fun insertUsers(users: List<UserEntity>) {
-        userDao.insertUsers(users)
-    }
-
     override suspend fun getAllUsers(): List<UserEntity> {
         return userDao.getAllUsers()
     }
@@ -54,7 +50,4 @@ class LocalRepositoryImpl(
         userDao.deleteAllUsers()
     }
 
-    override suspend fun deleteUser(user: UserEntity) {
-        userDao.deleteUser(user)
-    }
 }

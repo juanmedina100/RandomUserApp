@@ -14,10 +14,6 @@ interface UserDao {
     @Insert//(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertUser(user: UserEntity)
 
-    // Inserta varios usuarios
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertUsers(users: List<UserEntity>)
-
     // Obtiene todos los usuarios guardados
     @Query("SELECT * FROM users ORDER BY id ASC")
     suspend fun getAllUsers(): List<UserEntity>
@@ -29,9 +25,5 @@ interface UserDao {
     // Elimina todos los registros
     @Query("DELETE FROM users")
     suspend fun deleteAllUsers()
-
-    // Elimina un usuario específico
-    @Delete
-    suspend fun deleteUser(user: UserEntity)
 
 }

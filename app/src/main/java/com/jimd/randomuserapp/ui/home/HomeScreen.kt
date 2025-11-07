@@ -1,5 +1,6 @@
 package com.jimd.randomuserapp.ui.home
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -30,9 +31,12 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import cafe.adriel.voyager.core.screen.Screen
+import cafe.adriel.voyager.navigator.LocalNavigator
+import cafe.adriel.voyager.navigator.currentOrThrow
 import coil.compose.AsyncImage
 import com.jimd.randomuserapp.R
 import com.jimd.randomuserapp.data.entities.UserEntity
+import com.jimd.randomuserapp.ui.details.DetailScreen
 import org.koin.androidx.compose.koinViewModel
 
 class HomeScreen:Screen {
@@ -54,6 +58,7 @@ class HomeScreen:Screen {
 
 @Composable
 fun HomeApp(padding: PaddingValues, viewModel: HomeViewModel= koinViewModel()){
+    val navigation = LocalNavigator.currentOrThrow
     val state = viewModel.state
     val networkState = viewModel.networkState
     LaunchedEffect(Unit) {
@@ -65,15 +70,17 @@ fun HomeApp(padding: PaddingValues, viewModel: HomeViewModel= koinViewModel()){
             Text(networkState.results.uuid)
             LazyColumn {
                 items(state.users){
-                  ItemRandomUser(it)
+                  ItemRandomUser(it){
+                      navigation.push(DetailScreen(it.id))
+                  }
                 }
             }
         }
     }
 }
 @Composable
-fun ItemRandomUser(userEntity: UserEntity) {
-    Card(modifier=Modifier.fillMaxWidth().padding(5.dp),elevation = CardDefaults.cardElevation(defaultElevation = 10.dp)) {
+fun ItemRandomUser(userEntity: UserEntity,onClick:()->Unit= {}) {
+    Card(modifier=Modifier.fillMaxWidth().padding(5.dp).clickable { onClick() },elevation = CardDefaults.cardElevation(defaultElevation = 10.dp)) {
         Row(modifier=Modifier.padding(10.dp)) {
             AsyncImage(model = userEntity.picture.medium, contentDescription = "user",
                 modifier=Modifier.width(60.dp).height(60.dp).clip(CircleShape),
@@ -81,8 +88,6 @@ fun ItemRandomUser(userEntity: UserEntity) {
                 error = painterResource(R.drawable.ic_launcher_foreground),
                 contentScale = ContentScale.Crop
                 )
-
-
             Column(modifier=Modifier.padding(start = 16.dp)) {
                 Text(text = userEntity.name.first)
                 Text(text = userEntity.location.country)

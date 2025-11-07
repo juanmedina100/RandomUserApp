@@ -4,7 +4,7 @@
 ![License](https://img.shields.io/badge/License-MIT-green.svg)
 ![API](https://img.shields.io/badge/API-RandomUser.me-orange)
 ![Status](https://img.shields.io/badge/Build-Passing-brightgreen)
-![Platform](https://img.shields.io/badge/Platform-Android%20%7C%20Desktop-lightgrey)
+![Platform](https://img.shields.io/badge/Platform-Android-lightgrey)
 
 ---
 

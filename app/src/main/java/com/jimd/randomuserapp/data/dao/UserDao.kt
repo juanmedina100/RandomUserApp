@@ -23,8 +23,8 @@ interface UserDao {
     suspend fun getAllUsers(): List<UserEntity>
 
     // Obtiene un usuario por su UUID
-    @Query("SELECT * FROM users WHERE uuid = :uuid LIMIT 1")
-    suspend fun getUserById(uuid: String): UserEntity?
+    @Query("SELECT * FROM users WHERE id = :id LIMIT 1")
+    suspend fun getUserById(id: Int): UserEntity
 
     // Elimina todos los registros
     @Query("DELETE FROM users")

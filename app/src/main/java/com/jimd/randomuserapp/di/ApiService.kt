@@ -1,4 +1,13 @@
 package com.jimd.randomuserapp.di
 
-class ApiService {
+import io.ktor.client.HttpClient
+
+class ApiService(
+    private val httpClient: HttpClient,
+) {
+
+    companion object {
+        const val URL = ""
+    }
+
 }

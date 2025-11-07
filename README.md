@@ -83,7 +83,7 @@ Muestra la información completa del usuario:
 
 1 - Clona el repositorio:
 ```bash
-  git clone https://github.com/tuusuario/RandomUserExplorer.git
+  git clone https://github.com/juanmedina100/RandomUserApp.git
 
 ```
 2 - Abre el proyecto en Android Studio o IntelliJ IDEA.

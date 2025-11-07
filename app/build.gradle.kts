@@ -1,8 +1,11 @@
+//import androidx.glance.appwidget.compose
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.ksp)
 
 }
 
@@ -43,6 +46,9 @@ android {
 
 dependencies {
 
+
+
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -78,11 +84,16 @@ dependencies {
     implementation(libs.ktor.client.core)
     implementation(libs.ktor.client.logging)
     implementation(libs.ktor.serialization.kotlinx.json)
-//    implementation(libs.lifecycle.viewmodel.compose)
-//    implementation(libs.lifecycle.viewmodel.ktx)
-//    implementation(libs.filekit)
+
+    implementation(libs.androidx.room.ktx)
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.compiler)
+    ksp(libs.androidx.room.compiler)
 
 
+    configurations.all {
+        exclude(group = "com.intellij", module = "annotations")
+    }
 
 
 }

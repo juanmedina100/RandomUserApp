@@ -1,7 +1,6 @@
-# 📱 RandomUser Explorer
+# 📱 RandomUser App
 
 ![Kotlin](https://img.shields.io/badge/Kotlin-1.9-blue?logo=kotlin)
-![Compose Multiplatform](https://img.shields.io/badge/Jetpack_Compose-Multiplatform-8A2BE2?logo=jetpack-compose)
 ![License](https://img.shields.io/badge/License-MIT-green.svg)
 ![API](https://img.shields.io/badge/API-RandomUser.me-orange)
 ![Status](https://img.shields.io/badge/Build-Passing-brightgreen)
@@ -63,7 +62,7 @@ Muestra la información completa del usuario:
   "email": "thorvald.heggelund@example.com",
   "login": {"username": "redgoose533"},
   "dob": {"date": "1950-11-18T05:07:00.847Z", "age": 74},
-  "phone": "69054989",
+  "phone": "00000000",
   "picture": {"large": "https://randomuser.me/api/portraits/men/33.jpg"},
   "nat": "NO"
 }
@@ -71,13 +70,15 @@ Muestra la información completa del usuario:
 
 ## ⚙️ Tecnologías utilizadas
 
-- Kotlin Multiplatform / Jetpack Compose
+- Kotlin / Jetpack Compose
 - Ktor Client (para las peticiones HTTP)
 - Material Design 3
 - RandomUser API
 - Coroutines / Flow
 - Koin / Voyager / Navigation
 - MVVM Architecture
+- Room (persistencia de datos)
+- Coil (carga de imágenes)
 
 ## 📦 Instalación y ejecución
 

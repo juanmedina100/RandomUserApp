@@ -90,6 +90,8 @@ dependencies {
     implementation(libs.androidx.room.compiler)
     ksp(libs.androidx.room.compiler)
 
+    implementation(libs.coil.compose)
+
 
     configurations.all {
         exclude(group = "com.intellij", module = "annotations")

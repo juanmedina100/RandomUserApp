@@ -1,17 +1,17 @@
-package com.jimd.randomuserapp.domain
+package com.jimd.randomuserapp.data.dao
 
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.jimd.randomuserapp.data.UserEntity
+import com.jimd.randomuserapp.data.entities.UserEntity
 
 @Dao
 interface UserDao {
 
     // Inserta o actualiza usuarios
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert//(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertUser(user: UserEntity)
 
     // Inserta varios usuarios
@@ -19,7 +19,7 @@ interface UserDao {
     suspend fun insertUsers(users: List<UserEntity>)
 
     // Obtiene todos los usuarios guardados
-    @Query("SELECT * FROM users ORDER BY name_first ASC")
+    @Query("SELECT * FROM users ORDER BY id ASC")
     suspend fun getAllUsers(): List<UserEntity>
 
     // Obtiene un usuario por su UUID

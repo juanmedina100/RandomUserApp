@@ -17,17 +17,21 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import cafe.adriel.voyager.core.screen.Screen
@@ -65,14 +69,16 @@ fun HomeApp(padding: PaddingValues, viewModel: HomeViewModel= koinViewModel()){
         viewModel.getAllUsers()
     }
     Box(modifier=Modifier.fillMaxSize().padding(padding)){
-        Column(modifier=Modifier.fillMaxWidth()) {
-            Text(text = "Home", fontSize = 32.sp)
-            Text(networkState.results.uuid)
-            LazyColumn {
-                items(state.users){
-                  ItemRandomUser(it){
-                      navigation.push(DetailScreen(it.id))
-                  }
+        Column(modifier=Modifier.fillMaxWidth().padding(horizontal = 10.dp)) {
+            if (state.isLoading){
+                IsLoading()
+            }else {
+                LazyColumn {
+                    items(state.users) {
+                        ItemRandomUser(it) {
+                            navigation.push(DetailScreen(it.id))
+                        }
+                    }
                 }
             }
         }
@@ -89,9 +95,19 @@ fun ItemRandomUser(userEntity: UserEntity,onClick:()->Unit= {}) {
                 contentScale = ContentScale.Crop
                 )
             Column(modifier=Modifier.padding(start = 16.dp)) {
-                Text(text = userEntity.name.first)
-                Text(text = userEntity.location.country)
+                Text(text = userEntity.name.first, fontWeight = FontWeight.Bold, fontSize = 16.sp)
+                Text(text = userEntity.location.country, fontStyle = FontStyle.Normal, fontSize = 14.sp)
             }
+        }
+    }
+}
+
+@Composable
+fun IsLoading(){
+    Box(modifier=Modifier.fillMaxSize(), contentAlignment = Alignment.Center){
+        Column(modifier=Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
+            CircularProgressIndicator()
+            Text("Loaging...")
         }
     }
 }

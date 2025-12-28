@@ -16,10 +16,9 @@ La app presenta un diseño minimalista y atractivo, centrado en la experiencia d
 ## 🚀 Características principales
 
 - 🔄 **Obtención dinámica de usuarios** desde la API de [randomuser.me](https://randomuser.me/).
-- 🧑‍💼 **Visualización completa del perfil**: nombre, edad, dirección, contacto, nacionalidad, foto y más.
+- 🧑‍💼 **Visualización completa del perfil**: nombre, edad, dirección, contacto, foto y más.
 - 🎨 **Diseño moderno y adaptable** con modo claro/oscuro.
 - 💫 **Animaciones suaves y navegación fluida**.
-- 📤 **Opción para compartir perfiles**.
 
 ---
 
@@ -39,10 +38,8 @@ Muestra la información completa del usuario:
 - 👤 Nombre completo y género
 - 🎂 Edad y fecha de nacimiento
 - 📍 Dirección completa (calle, ciudad, estado, país)
-- 🕒 Zona horaria
-- 📧 Email
 - ☎️ Teléfono
-- 🌐 Nacionalidad
+- 📧 Email
 
 ---
 
